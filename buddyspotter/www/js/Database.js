@@ -36,19 +36,42 @@ var database = (function(){
 
     res.getGroups = function(callback){
         var groupRef = new Firebase(FIRE_BASE_URL+GROUP_TABLE);
-        groupRef.on("child_added", function(snapshot, prevChildKey) {
+        groupRef.on("value", function(snapshot, prevChildKey) {
           var newItem = snapshot.val();
-          for(var key in newItem.user){
-              if(newItem.user[key].phone == window.user.phone){
-                callback(newItem, prevChildKey)
+          if(newItem){
+              var res = [];
+              for(var key in newItem){
+                  for(var kk in newItem[key].user){
+                    if(newItem[key].user[kk].phone == window.user.phone){
+                        var a = newItem[key];
+                        a.key = key;
+                        res.push(a);
+                    }
+                  }
+              }
+              callback(res)
+          }
+        });
+    }
+
+    res.getMembers = function(groupID, callback){
+        var groupRef = new Firebase(FIRE_BASE_URL+GROUP_TABLE+groupID);
+        groupRef.on("value", function(snapshot, prevChildKey) {
+          var newItem = snapshot.val();
+          var res = [];
+          if(newItem){
+              for(var key in newItem.user){
+                res.push(newItem.user[key]);
               }
           }
+          callback(res);
         });
     }
 
     res.createGroup = function(group_name){
       var groupRef = new Firebase(FIRE_BASE_URL+GROUP_TABLE);
-      var data = {"name": group_name, "user": [window.user]};
+      var data = {"name": group_name, "user": {}};
+      data["user"][window.user.key] = window.user;
       var obj = groupRef.push(data);
       return obj.key();
     }

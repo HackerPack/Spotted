@@ -1,4 +1,4 @@
-var MapView = function () {
+var MapView = function (groupID) {
 
   this.initialize = function () {
     this.$el = $('<div/>');

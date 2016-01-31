@@ -9,18 +9,16 @@ var HomeView = function () {
         this.$el = $('<div/>');
         var that = this;
         database.getGroups(function(groups){
-	        that.groupListView = new GroupListView(groups);
-	        that.render();
+            that.render(groups);
         });
+        this.$el.on('click', '#creategroup', function(){window.location.hash = "creategroup";});
+        
     };
 
-    this.render = function() {
-	    this.$el.html(this.template());
-<<<<<<< HEAD
-		console.log(groupListView);
-=======
->>>>>>> ce746f0f1ea181790168e2694cd5c7a4ef808b88
-	    $('.content', this.$el).html(groupListView.$el);
+    this.render = function(groups) {
+        this.groupListView = new GroupListView(groups);
+        this.$el.html(this.template(groups));
+	    $('.content', this.$el).html(this.groupListView.$el);
 	    return this;
 	};
 

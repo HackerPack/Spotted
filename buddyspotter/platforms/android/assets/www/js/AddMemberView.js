@@ -1,33 +1,41 @@
 var AddMemberView=function(groupID){
 	var memberListView;
 	this.initialize=function(){
-		this.$el="</div>";
-		var that=this;
-		database.getMembers(function(groupID){
-			that.memberListView=new memberListView(groupID);
-			that.render();
-		});
+		this.$el=$("<div/>");
+		this.$el.on('click', '#newMember', this.phonePopup);
+		this.memberListing();
 	};
 	this.render=function(){
 		this.$el.html(this.template());
-		$('.content', this.$el).html(memberListView.$el);
+		if(this.memberListView){
+			$('.content', this.$el).html(this.memberListView.$el);
+		}
 	    return this;
 	};
-	this.findByName = function() {
-    service.findByName($('.search-key').val()).done(function(contactName) {
-       // contactList.setContacts(contactName);
-	    // Show Contact Picker
+	this.memberListing=function(){
+		var that=this;
+		database.getMembers(groupID, function(group){
+			that.memberListView=new MemberListView(group);
+			that.render();
+		});
+	}
+	this.phonePopup = function() {
 		var successCallback = function(result){
-			setTimeout(function(){alert(result.name + " " + result.phoneNumber);},0);
+			setTimeout(function(){
+				database.addUserToGroup(groupID, {"first_name": result.name, "phone": result.phoneNumber});
+			},0);
 			
 		};
 		var failedCallback = function(result){
 			setTimeout(function(){alert(result);},0);
 		}
-		window.plugins.contactNumberPicker.pick(successCallback,failedCallback);	
-    });
-};
-	
+		document.addEventListener("deviceready", function() {
+		window.plugins.contactNumberPicker.pick(successCallback,failedCallback);
+		
+		},false);
+    
+	};
+	this.initialize();
 }
 
 			

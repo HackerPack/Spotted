@@ -7,6 +7,7 @@
     GroupListView.prototype.template = Handlebars.compile($("#group-list-tpl").html());
 	CreateGroupView.prototype.template=Handlebars.compile($("#group-create-tpl").html());
 	AddMemberView.prototype.template=Handlebars.compile($("#add-member-tpl").html());
+    MemberListView.prototype.template = Handlebars.compile($("#member-list-tpl").html());
     MapView.prototype.template = Handlebars.compile($("#map-tpl").html());
     var slider = new PageSlider($('body'));
 
@@ -27,8 +28,8 @@
 	router.addRoute('addmember/:id',function(id){
 		slider.slidePage(new AddMemberView(id).render().$el);		
 	});
-    router.addRoute('map', function() {
-      slider.slidePage(new MapView().render().$el);
+    router.addRoute('map/:id', function(id) {
+      slider.slidePage(new MapView(id).render().$el);
     });
     router.start();
     
