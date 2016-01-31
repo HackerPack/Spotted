@@ -36,6 +36,21 @@ var database = (function(){
 
     res.getGroups = function(callback){
         var groupRef = new Firebase(FIRE_BASE_URL+GROUP_TABLE);
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+        groupRef.on("child_added", function(snapshot, prevChildKey) {
+          var newItem = snapshot.val();
+<<<<<<< HEAD
+          for(var key in newItem.user){
+              if(newItem.user[key].phone == window.user.phone){
+                callback(newItem, prevChildKey)
+              }
+          }
+=======
+          callback(newItem, prevChildKey)
+=======
+>>>>>>> 7452bea35d56a1ed798c9c93dff7b0cb7f00cd59
         groupRef.on("value", function(snapshot, prevChildKey) {
           var newItem = snapshot.val();
           if(newItem){
@@ -65,11 +80,28 @@ var database = (function(){
               }
           }
           callback(res);
+<<<<<<< HEAD
+=======
+>>>>>>> 04a21f2f288bb936828daad50dae7c6b058cf331
+>>>>>>> 963e588696b388a885aa3aef6343a1d2b0f828d5
+>>>>>>> 7452bea35d56a1ed798c9c93dff7b0cb7f00cd59
         });
     }
 
     res.createGroup = function(group_name){
       var groupRef = new Firebase(FIRE_BASE_URL+GROUP_TABLE);
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+      var data = {"name": group_name, "user": [window.user]};
+=======
+<<<<<<< HEAD
+      var data = {"name": group_name};
+>>>>>>> 963e588696b388a885aa3aef6343a1d2b0f828d5
+      var obj = groupRef.push(data);
+      return obj.key();
+=======
+>>>>>>> 7452bea35d56a1ed798c9c93dff7b0cb7f00cd59
       var data = {"name": group_name, "user": {}};
       data["user"][window.user.key] = window.user;
       var obj = groupRef.push(data);
@@ -80,6 +112,13 @@ var database = (function(){
       var groupRef = new Firebase(FIRE_BASE_URL+GROUP_TABLE+group_id+"/user");
       var obj = groupRef.push(user);
       return obj.key();
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+=======
+>>>>>>> 04a21f2f288bb936828daad50dae7c6b058cf331
+>>>>>>> 963e588696b388a885aa3aef6343a1d2b0f828d5
+>>>>>>> 7452bea35d56a1ed798c9c93dff7b0cb7f00cd59
     }
 
 
