@@ -4,6 +4,8 @@ var LoginView = function (service) {
 
     this.initialize = function () {
         this.$el = $('<div/>');
+<<<<<<< HEAD
+=======
 		var successCallback = function(result){
 			setTimeout(function(){alert(result.name + " " + result.phoneNumber);},0);
 			
@@ -13,6 +15,7 @@ var LoginView = function (service) {
 		}
 		window.plugins.contactNumberPicker.pick(successCallback,failedCallback);
 		
+>>>>>>> 04a21f2f288bb936828daad50dae7c6b058cf331
         this.$el.on('click', '#login', this.login);
         window.user = JSON.parse(window.localStorage.getItem("bs_login_key"));
         if(window.user){
@@ -36,7 +39,10 @@ var LoginView = function (service) {
             $("#msg", this.$el).html("Invalid phone number");
             return;
         }
+<<<<<<< HEAD
+=======
 		
+>>>>>>> 04a21f2f288bb936828daad50dae7c6b058cf331
 	    var key = database.createUser(first_name, last_name, phone_no);
         window.user = { "key": key,
                         "first_name": first_name,

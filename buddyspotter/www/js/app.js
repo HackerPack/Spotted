@@ -14,7 +14,6 @@
 
     router.addRoute('', function() {
       slider.slidePage(new LoginView().render().$el);
-      //slider.slidePage(new MapView().render().$el);
     });
 
     router.addRoute('home', function() {

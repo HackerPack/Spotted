@@ -1,9 +1,10 @@
 var MapView = function () {
-
+  var that;
   this.initialize = function () {
+    that = this;
     this.$el = $('<div/>');
     this.render();
-    google.maps.event.addDomListener(window, 'load', this.makeMap);
+    navigator.geolocation.getCurrentPosition(onSuccess,onError);
   }
   this.render = function() {
     this.$el.html(this.template());
@@ -37,6 +38,21 @@ function(error)
     var names = ['Gautam', 'Shivani', 'Shash', 'Anbu', 'Anany'];
     
   this.makeMap = function() {
+<<<<<<< HEAD
+    //var myLatlng = new google.maps.LatLng(-25.363882,131.044922)
+    console.log(that.latitude);
+    console.log(that.longitude);
+    var myLatlng = new google.maps.LatLng(this.latitude,this.longitude);
+    var myLatlng = {
+        lat: that.latitude,
+        lng: that.longitude
+      };
+    var mapOptions = {
+    zoom: 13,
+    center: myLatlng,
+    mapTypeId: google.maps.MapTypeId.ROADMAP
+    }
+=======
     var myLatlng = new google.maps.LatLng(temploc[0],temploc[1]); //hard-coded
     //var myLatlng2 = new google.maps.LatLng(temploc[0]+10,temploc[1]+10);
     
@@ -54,7 +70,9 @@ function(error)
     mapTypeId: google.maps.MapTypeId.ROADMAP
     }
     //console.log(document.getElementById('map-canvas'));
+>>>>>>> 04a21f2f288bb936828daad50dae7c6b058cf331
     var map = new google.maps.Map(document.getElementById('map-canvas'), mapOptions);
+    console.log(document.getElementById('map-canvas'));
 
     /*var marker = new google.maps.Marker({
     position: myLatlng,
@@ -155,6 +173,20 @@ function(error)
   //this.makeInfoWindowEvent = function(map, infowindow, marker) {}
     /*google.maps.event.addListener(marker, 'click', function() {
     infowindow.open(map, marker);
+<<<<<<< HEAD
+    });
+  }
+  var onSuccess = function (position) {
+    that.latitude = position.coords.latitude; 
+    that.longitude = position.coords.longitude;
+    //google.maps.event.addDomListener(window, 'load', that.makeMap);
+    that.makeMap();
+  };
+  var onError = function (error){
+    alert('code: '    + error.code    + '\n' +
+                'message: ' + error.message + '\n');
+  };
+=======
     });*/
   /*for(i=0; i<grpMembers; i++){
   this.makeInfoWindowEvent = function(map, infowindow, markers[i]) {
@@ -168,5 +200,6 @@ function(error)
   this.makeInfoWindowEvent = function(map, infowindow, marker4) {}
   this.makeInfoWindowEvent = function(map, infowindow, marker5) {}
 
+>>>>>>> 04a21f2f288bb936828daad50dae7c6b058cf331
   this.initialize();
 }
