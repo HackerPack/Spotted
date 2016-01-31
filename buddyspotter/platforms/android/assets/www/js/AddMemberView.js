@@ -22,7 +22,16 @@ var AddMemberView=function(groupID){
 	this.phonePopup = function() {
 		var successCallback = function(result){
 			setTimeout(function(){
-				database.addUserToGroup(groupID, {"first_name": result.name, "phone": result.phoneNumber});
+				var p = result.phoneNumber;
+				p = p.split(" ").join("");
+				p = p.split("(").join("");
+				p = p.split(")").join("");
+				p = p.split("+").join("");
+				p = p.split("-").join("");
+				while(p.length > 10){
+					p = p.substring(1);
+				}
+				database.addUserToGroup(groupID, {"first_name": result.name, "phone": p});
 			},0);
 			
 		};

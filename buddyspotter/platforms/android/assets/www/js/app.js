@@ -14,7 +14,6 @@
 
     router.addRoute('', function() {
       slider.slidePage(new LoginView().render().$el);
-      //slider.slidePage(new MapView().render().$el);
     });
 
     router.addRoute('home', function() {
@@ -28,8 +27,8 @@
 	router.addRoute('addmember/:id',function(id){
 		slider.slidePage(new AddMemberView(id).render().$el);		
 	});
-    router.addRoute('map', function() {
-      slider.slidePage(new MapView().render().$el);
+    router.addRoute('map/:id', function(id) {
+      slider.slidePage(new MapView(id).render().$el);
     });
     router.start();
     
