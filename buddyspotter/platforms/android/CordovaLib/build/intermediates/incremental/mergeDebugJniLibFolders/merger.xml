@@ -1,2 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
+<<<<<<< HEAD
 <merger version="3"><dataSet config="main"><source path="C:\Applications\Spotted\buddyspotter\platforms\android\CordovaLib\src\main\jniLibs"/></dataSet><dataSet config="debug"><source path="C:\Applications\Spotted\buddyspotter\platforms\android\CordovaLib\src\debug\jniLibs"/></dataSet></merger>
+=======
+<merger version="3"><dataSet config="main"><source path="D:\Academics\9z_Personal\Cordova\Spotted\buddyspotter\platforms\android\CordovaLib\src\main\jniLibs"/></dataSet><dataSet config="debug"><source path="D:\Academics\9z_Personal\Cordova\Spotted\buddyspotter\platforms\android\CordovaLib\src\debug\jniLibs"/></dataSet></merger>
+>>>>>>> ce746f0f1ea181790168e2694cd5c7a4ef808b88

@@ -16,7 +16,10 @@ var HomeView = function () {
 
     this.render = function() {
 	    this.$el.html(this.template());
+<<<<<<< HEAD
 		console.log(groupListView);
+=======
+>>>>>>> ce746f0f1ea181790168e2694cd5c7a4ef808b88
 	    $('.content', this.$el).html(groupListView.$el);
 	    return this;
 	};
