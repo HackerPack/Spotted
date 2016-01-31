@@ -36,9 +36,17 @@ var database = (function(){
 
     res.getGroups = function(userId, callback){
         var groupRef = new Firebase(FIRE_BASE_URL+GROUP_TABLE);
-        /*userRef.once('value', function(data) {
-                callback(data.val());
-        });*/
+        groupRef.on("child_added", function(snapshot, prevChildKey) {
+          var newItem = snapshot.val();
+          callback(newItem, prevChildKey)
+        });
+    }
+
+    res.createGroup = function(group_name){
+      var groupRef = new Firebase(FIRE_BASE_URL+GROUP_TABLE);
+      var data = {"name": group_name};
+      var obj = groupRef.push(data);
+      return obj.key();
     }
 
     res.isNewUser = true;
