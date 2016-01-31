@@ -68,6 +68,36 @@ var database = (function(){
         });
     }
 
+    res.getMembersWithLoc = function(groupID, callback){
+        var users = [];
+        var userRef = new Firebase(FIRE_BASE_URL+USER_TABLE);
+        userRef.on("value", function(snapshot, prevChildKey) {
+            var newItem = snapshot.val();
+            var res = {};
+            if(newItem){
+                for(var key in newItem){
+                    res[newItem[key].phone] = newItem[key];
+                }
+            }
+            var groupRef = new Firebase(FIRE_BASE_URL+GROUP_TABLE+groupID);
+            groupRef.on("value", function(snapshot, prevChildKey) {
+                var newItem = snapshot.val();
+                var res = [];
+                if(newItem){
+                    for(var key in newItem.user){
+                      if(res.hasOwnProperty(newItem.user[key].phone)){
+                          var usr = newItem.user[key];
+                          usr.latitude = res[newItem.user[key].phone].latitude;
+                          usr.longitude = res[newItem.user[key].phone].longitude;
+                          users.push(usr)
+                      }
+                    }
+                }
+                callback(users);
+            });
+        });
+    }
+
     res.createGroup = function(group_name){
       var groupRef = new Firebase(FIRE_BASE_URL+GROUP_TABLE);
       var data = {"name": group_name, "user": {}};
