@@ -1,25 +1,24 @@
-var HomeView = function (service) {
+var HomeView = function () {
 
-    var employeeListView;
+    var groupListView;
 
     this.initialize = function () {
-        // Define a div wrapper for the view (used to attach events)
+    	if(!window.user){
+            window.location.hash = "";
+        }
         this.$el = $('<div/>');
-        this.$el.on('keyup', '.search-key', this.findByName);
-        employeeListView = new EmployeeListView();
-        this.render();
+        var that = this;
+        database.getGroups(function(groups){
+	        that.groupListView = new GroupListView(groups);
+	        that.render();
+        });
     };
 
     this.render = function() {
 	    this.$el.html(this.template());
-	    $('.content', this.$el).html(employeeListView.$el);
+		console.log(groupListView);
+	    $('.content', this.$el).html(groupListView.$el);
 	    return this;
-	};
-
-	this.findByName = function() {
-	    service.findByName($('.search-key').val()).done(function(employees) {
-	        employeeListView.setEmployees(employees);
-	    });
 	};
 
     this.initialize();

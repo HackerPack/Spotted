@@ -5,6 +5,8 @@
     LoginView.prototype.template = Handlebars.compile($("#login-tpl").html());
     HomeView.prototype.template = Handlebars.compile($("#home-tpl").html());
     GroupListView.prototype.template = Handlebars.compile($("#group-list-tpl").html());
+	CreateGroupView.prototype.template=Handlebars.compile($("#group-create-tpl").html());
+	AddMemberView.prototype.template=Handlebars.compile($("#add-member-tpl").html());
     var slider = new PageSlider($('body'));
 
 
@@ -15,7 +17,16 @@
     router.addRoute('home', function() {
       slider.slidePage(new HomeView().render().$el);
     });
-
+	
+	
+	router.addRoute('creategroup',function(){
+		slider.slidePage(new CreateGroupView().render().$el);
+	});
+	
+	router.addRoute('addmember/:id',function(id){
+		slider.slidePage(new AddMemberView(id).render().$el);		
+	});
+	
     router.start();
     
     /* --------------------------------- Event Registration -------------------------------- */

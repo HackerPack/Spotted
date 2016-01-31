@@ -21,6 +21,12 @@
     <feature name="Contacts">
         <param name="android-package" value="org.apache.cordova.contacts.ContactManager" />
     </feature>
+    <feature name="ContactNumberPicker">
+        <param name="android-package" value="hu.dpal.phonegap.plugins.ContactNumberPicker" />
+    </feature>
+    <feature name="ContactPicker">
+        <param name="android-package" value="com.badrit.ContactPicker.ContactPickerPlugin" />
+    </feature>
     <allow-intent href="market:*" />
     <name>BuddySpotter</name>
     <description>

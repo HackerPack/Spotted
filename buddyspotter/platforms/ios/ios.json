@@ -39,6 +39,14 @@
                         {
                             "xml": "<feature name=\"Contacts\"><param name=\"ios-package\" value=\"CDVContacts\" /></feature>",
                             "count": 1
+                        },
+                        {
+                            "xml": "<feature name=\"ContactNumberPicker\"><param name=\"ios-package\" value=\"CDVContactNumberPicker\" /></feature>",
+                            "count": 1
+                        },
+                        {
+                            "xml": "<feature name=\"ContactPicker\"><param name=\"ios-package\" value=\"ContactPicker\" /></feature>",
+                            "count": 1
                         }
                     ]
                 }
@@ -75,6 +83,12 @@
             "PACKAGE_NAME": "com.hackerpack.buddyspotter"
         },
         "cordova-plugin-contacts": {
+            "PACKAGE_NAME": "com.hackerpack.buddyspotter"
+        },
+        "cordova-plugin-contact-number-picker": {
+            "PACKAGE_NAME": "com.hackerpack.buddyspotter"
+        },
+        "com-badrit-contactpicker": {
             "PACKAGE_NAME": "com.hackerpack.buddyspotter"
         }
     },
@@ -238,6 +252,22 @@
             "pluginId": "cordova-plugin-contacts",
             "merges": [
                 "Contact"
+            ]
+        },
+        {
+            "file": "plugins/cordova-plugin-contact-number-picker/www/contactNumberPicker.js",
+            "id": "cordova-plugin-contact-number-picker.ContactNumberPicker",
+            "pluginId": "cordova-plugin-contact-number-picker",
+            "merges": [
+                "window.plugins.contactNumberPicker"
+            ]
+        },
+        {
+            "file": "plugins/com-badrit-contactpicker/www/ContactPicker.js",
+            "id": "com-badrit-contactpicker.ContactPicker",
+            "pluginId": "com-badrit-contactpicker",
+            "clobbers": [
+                "navigator.ContactPicker"
             ]
         }
     ]

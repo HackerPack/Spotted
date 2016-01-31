@@ -27,6 +27,12 @@
         },
         "cordova-plugin-contacts": {
             "PACKAGE_NAME": "com.hackerpack.buddyspotter"
+        },
+        "cordova-plugin-contact-number-picker": {
+            "PACKAGE_NAME": "com.hackerpack.buddyspotter"
+        },
+        "com-badrit-contactpicker": {
+            "PACKAGE_NAME": "com.hackerpack.buddyspotter"
         }
     },
     "dependent_plugins": {}

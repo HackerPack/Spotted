@@ -159,6 +159,22 @@ module.exports = [
         "merges": [
             "Contact"
         ]
+    },
+    {
+        "file": "plugins/cordova-plugin-contact-number-picker/www/contactNumberPicker.js",
+        "id": "cordova-plugin-contact-number-picker.ContactNumberPicker",
+        "pluginId": "cordova-plugin-contact-number-picker",
+        "merges": [
+            "window.plugins.contactNumberPicker"
+        ]
+    },
+    {
+        "file": "plugins/com-badrit-contactpicker/www/ContactPicker.js",
+        "id": "com-badrit-contactpicker.ContactPicker",
+        "pluginId": "com-badrit-contactpicker",
+        "clobbers": [
+            "navigator.ContactPicker"
+        ]
     }
 ];
 module.exports.metadata = 

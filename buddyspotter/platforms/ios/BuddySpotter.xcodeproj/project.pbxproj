@@ -27,6 +27,12 @@
 		002B674076074AA0A1F08FC7 /* CDVContact.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C6D4C7189AA4E9592F3579B /* CDVContact.m */; };
 		87DAE2B4A5B14097965658BA /* AddressBook.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9F724970947C49519D8E9139 /* AddressBook.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 		D66210EA30864EDBADDBA8A5 /* AddressBookUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D1B5BCE7D5694804A34BDA34 /* AddressBookUI.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
+		0226E807EA42430784EC74A8 /* CDVContactNumberPicker.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E342E4C7FBE49A08DD28E16 /* CDVContactNumberPicker.m */; };
+		A437F6123C6D401783426D8C /* AddressBook.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FEE3D8D9809847959DC53CA4 /* AddressBook.framework */; };
+		9FC8CCDA9CAC42CE8D870484 /* AddressBookUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7CFED05717CF4FBA9B7C1473 /* AddressBookUI.framework */; };
+		2B25ED3EC03349789C962DB8 /* ContactPicker.m in Sources */ = {isa = PBXBuildFile; fileRef = 12492E9690D34B8585BE5740 /* ContactPicker.m */; };
+		AC72EF519AE3422DB9330176 /* AddressBook.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 77E5ED63B1554030B988F954 /* AddressBook.framework */; };
+		34033533EA0A468FB1B70785 /* AddressBookUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 780C788C6E0743A9AB9734B3 /* AddressBookUI.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -85,6 +91,14 @@
 		69A6355BF4A84FECA534B5BB /* CDVContact.h */ = {isa = PBXFileReference; name = "CDVContact.h"; path = "cordova-plugin-contacts/CDVContact.h"; sourceTree = "<group>"; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; explicitFileType = undefined; includeInIndex = 0; };
 		9F724970947C49519D8E9139 /* AddressBook.framework */ = {isa = PBXFileReference; name = "AddressBook.framework"; path = "System/Library/Frameworks/AddressBook.framework"; sourceTree = SDKROOT; fileEncoding = undefined; lastKnownFileType = wrapper.framework; explicitFileType = undefined; includeInIndex = 0; };
 		D1B5BCE7D5694804A34BDA34 /* AddressBookUI.framework */ = {isa = PBXFileReference; name = "AddressBookUI.framework"; path = "System/Library/Frameworks/AddressBookUI.framework"; sourceTree = SDKROOT; fileEncoding = undefined; lastKnownFileType = wrapper.framework; explicitFileType = undefined; includeInIndex = 0; };
+		6E342E4C7FBE49A08DD28E16 /* CDVContactNumberPicker.m */ = {isa = PBXFileReference; name = "CDVContactNumberPicker.m"; path = "cordova-plugin-contact-number-picker/CDVContactNumberPicker.m"; sourceTree = "<group>"; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; explicitFileType = undefined; includeInIndex = 0; };
+		D139E96BFF724942B982BA0E /* CDVContactNumberPicker.h */ = {isa = PBXFileReference; name = "CDVContactNumberPicker.h"; path = "cordova-plugin-contact-number-picker/CDVContactNumberPicker.h"; sourceTree = "<group>"; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; explicitFileType = undefined; includeInIndex = 0; };
+		FEE3D8D9809847959DC53CA4 /* AddressBook.framework */ = {isa = PBXFileReference; name = "AddressBook.framework"; path = "System/Library/Frameworks/AddressBook.framework"; sourceTree = SDKROOT; fileEncoding = undefined; lastKnownFileType = wrapper.framework; explicitFileType = undefined; includeInIndex = 0; };
+		7CFED05717CF4FBA9B7C1473 /* AddressBookUI.framework */ = {isa = PBXFileReference; name = "AddressBookUI.framework"; path = "System/Library/Frameworks/AddressBookUI.framework"; sourceTree = SDKROOT; fileEncoding = undefined; lastKnownFileType = wrapper.framework; explicitFileType = undefined; includeInIndex = 0; };
+		12492E9690D34B8585BE5740 /* ContactPicker.m */ = {isa = PBXFileReference; name = "ContactPicker.m"; path = "com-badrit-contactpicker/ContactPicker.m"; sourceTree = "<group>"; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; explicitFileType = undefined; includeInIndex = 0; };
+		FB4B331653C443F480E4305E /* ContactPicker.h */ = {isa = PBXFileReference; name = "ContactPicker.h"; path = "com-badrit-contactpicker/ContactPicker.h"; sourceTree = "<group>"; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; explicitFileType = undefined; includeInIndex = 0; };
+		77E5ED63B1554030B988F954 /* AddressBook.framework */ = {isa = PBXFileReference; name = "AddressBook.framework"; path = "System/Library/Frameworks/AddressBook.framework"; sourceTree = SDKROOT; fileEncoding = undefined; lastKnownFileType = wrapper.framework; explicitFileType = undefined; includeInIndex = 0; };
+		780C788C6E0743A9AB9734B3 /* AddressBookUI.framework */ = {isa = PBXFileReference; name = "AddressBookUI.framework"; path = "System/Library/Frameworks/AddressBookUI.framework"; sourceTree = SDKROOT; fileEncoding = undefined; lastKnownFileType = wrapper.framework; explicitFileType = undefined; includeInIndex = 0; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -97,6 +111,10 @@
 				887A05269C4C4BC4B9860EEF /* CoreLocation.framework in Frameworks */,
 				87DAE2B4A5B14097965658BA /* AddressBook.framework in Frameworks */,
 				D66210EA30864EDBADDBA8A5 /* AddressBookUI.framework in Frameworks */,
+				A437F6123C6D401783426D8C /* AddressBook.framework in Frameworks */,
+				9FC8CCDA9CAC42CE8D870484 /* AddressBookUI.framework in Frameworks */,
+				AC72EF519AE3422DB9330176 /* AddressBook.framework in Frameworks */,
+				34033533EA0A468FB1B70785 /* AddressBookUI.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -171,6 +189,10 @@
 				83D6E9CA8E774D9DA3014E7F /* CoreLocation.framework */,
 				9F724970947C49519D8E9139 /* AddressBook.framework */,
 				D1B5BCE7D5694804A34BDA34 /* AddressBookUI.framework */,
+				FEE3D8D9809847959DC53CA4 /* AddressBook.framework */,
+				7CFED05717CF4FBA9B7C1473 /* AddressBookUI.framework */,
+				77E5ED63B1554030B988F954 /* AddressBook.framework */,
+				780C788C6E0743A9AB9734B3 /* AddressBookUI.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -210,6 +232,10 @@
 				4C6D4C7189AA4E9592F3579B /* CDVContact.m */,
 				C2037A00FC2B460891BE8FCA /* CDVContacts.h */,
 				69A6355BF4A84FECA534B5BB /* CDVContact.h */,
+				6E342E4C7FBE49A08DD28E16 /* CDVContactNumberPicker.m */,
+				D139E96BFF724942B982BA0E /* CDVContactNumberPicker.h */,
+				12492E9690D34B8585BE5740 /* ContactPicker.m */,
+				FB4B331653C443F480E4305E /* ContactPicker.h */,
 			);
 			name = Plugins;
 			path = "BuddySpotter/Plugins";
@@ -332,6 +358,8 @@
 				FE911CD460E94ED49D7F0D47 /* CDVLocation.m in Sources */,
 				F7722B8839414C0BAC4693C3 /* CDVContacts.m in Sources */,
 				002B674076074AA0A1F08FC7 /* CDVContact.m in Sources */,
+				0226E807EA42430784EC74A8 /* CDVContactNumberPicker.m in Sources */,
+				2B25ED3EC03349789C962DB8 /* ContactPicker.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

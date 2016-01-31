@@ -16,6 +16,7 @@ var HomeView = function () {
 
     this.render = function() {
 	    this.$el.html(this.template());
+		console.log(groupListView);
 	    $('.content', this.$el).html(groupListView.$el);
 	    return this;
 	};

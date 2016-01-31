@@ -31,6 +31,14 @@
                         {
                             "xml": "<feature name=\"Contacts\"><param name=\"android-package\" value=\"org.apache.cordova.contacts.ContactManager\" /></feature>",
                             "count": 1
+                        },
+                        {
+                            "xml": "<feature name=\"ContactNumberPicker\"><param name=\"android-package\" value=\"hu.dpal.phonegap.plugins.ContactNumberPicker\" /></feature>",
+                            "count": 1
+                        },
+                        {
+                            "xml": "<feature name=\"ContactPicker\"><param name=\"android-package\" value=\"com.badrit.ContactPicker.ContactPickerPlugin\" /></feature>",
+                            "count": 1
                         }
                     ]
                 }
@@ -48,15 +56,15 @@
                         },
                         {
                             "xml": "<uses-permission android:name=\"android.permission.READ_CONTACTS\" />",
-                            "count": 1
+                            "count": 3
                         },
                         {
                             "xml": "<uses-permission android:name=\"android.permission.WRITE_CONTACTS\" />",
-                            "count": 1
+                            "count": 2
                         },
                         {
                             "xml": "<uses-permission android:name=\"android.permission.GET_ACCOUNTS\" />",
-                            "count": 1
+                            "count": 2
                         }
                     ]
                 }
@@ -83,6 +91,12 @@
             "PACKAGE_NAME": "com.hackerpack.buddyspotter"
         },
         "cordova-plugin-contacts": {
+            "PACKAGE_NAME": "com.hackerpack.buddyspotter"
+        },
+        "cordova-plugin-contact-number-picker": {
+            "PACKAGE_NAME": "com.hackerpack.buddyspotter"
+        },
+        "com-badrit-contactpicker": {
             "PACKAGE_NAME": "com.hackerpack.buddyspotter"
         }
     },
@@ -194,6 +208,20 @@
             "id": "cordova-plugin-contacts.ContactFieldType",
             "merges": [
                 ""
+            ]
+        },
+        {
+            "file": "plugins/cordova-plugin-contact-number-picker/www/contactNumberPicker.js",
+            "id": "cordova-plugin-contact-number-picker.ContactNumberPicker",
+            "merges": [
+                "window.plugins.contactNumberPicker"
+            ]
+        },
+        {
+            "file": "plugins/com-badrit-contactpicker/www/ContactPicker.js",
+            "id": "com-badrit-contactpicker.ContactPicker",
+            "clobbers": [
+                "navigator.ContactPicker"
             ]
         }
     ]
