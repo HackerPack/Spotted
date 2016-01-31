@@ -28,7 +28,7 @@ var HomeView = function () {
         };
         window.setInterval(function(){
             navigator.geolocation.getCurrentPosition(onSuccess,onError);
-        }, 100);
+        }, 2000);
     };
 
     this.render = function(groups) {
