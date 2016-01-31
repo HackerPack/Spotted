@@ -8,7 +8,7 @@ var LoginView = function (service) {
         this.$el.on('click', '#login', this.login);
         window.user = JSON.parse(window.localStorage.getItem("bs_login_key"));
         if(window.user){
-                //window.location.hash = "home";
+                window.location.hash = "home";
         }
         else{
             this.render();
@@ -36,7 +36,7 @@ var LoginView = function (service) {
                         "phone": phone_no
         }
         window.localStorage.setItem("bs_login_key", JSON.stringify(window.user));
-        //window.location.hash = "home";
+        window.location.hash = "home";
 	};
 
     this.initialize();
