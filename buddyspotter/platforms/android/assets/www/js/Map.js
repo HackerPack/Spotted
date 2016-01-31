@@ -21,34 +21,10 @@ var MapView = function (groupID) {
   };
     
   this.makeMap = function() {
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
-    var myLatlng = new google.maps.LatLng(temploc[0],temploc[1]); //hard-coded
-    //var myLatlng2 = new google.maps.LatLng(temploc[0]+10,temploc[1]+10);
-    
-    myLatLngs[0] =new google.maps.LatLng(temploc[0],temploc[1]);
-    myLatLngs[1] =new google.maps.LatLng(temploc[0]+5,temploc[1]+5);
-    myLatLngs[2] =new google.maps.LatLng(temploc[0]+5,temploc[1]-5);
-    myLatLngs[3] =new google.maps.LatLng(temploc[0]-5,temploc[1]+5);
-    myLatLngs[4] =new google.maps.LatLng(temploc[0]-5,temploc[1]-5); //2D array
-      
-    //var myLatlng = new google.maps.LatLng(location[0], location[1]);
-    var mapOptions = {
-    zoom: 4,
-    center: myLatlng, //hard-coded
-    //center: myLatLngs[0],
-=======
-<<<<<<< HEAD
-    //var myLatlng = new google.maps.LatLng(-25.363882,131.044922)
-    console.log(that.latitude);
-    console.log(that.longitude);
->>>>>>> 7452bea35d56a1ed798c9c93dff7b0cb7f00cd59
     var myLatlng = new google.maps.LatLng(this.latitude,this.longitude);
     var mapOptions = {
     zoom: 20,
     center: myLatlng,
->>>>>>> 963e588696b388a885aa3aef6343a1d2b0f828d5
     mapTypeId: google.maps.MapTypeId.ROADMAP
     }
     var myLatLngs=[];
@@ -103,21 +79,12 @@ var MapView = function (groupID) {
       
     var infowindow1 = new google.maps.InfoWindow({
     content: 'Gautam '
-<<<<<<< HEAD
     });
       
     var infowindow2 = new google.maps.InfoWindow({
     content: 'Shivani '
     });
       
-=======
-    });
-      
-    var infowindow2 = new google.maps.InfoWindow({
-    content: 'Shivani '
-    });
-      
->>>>>>> 963e588696b388a885aa3aef6343a1d2b0f828d5
     var infowindow3 = new google.maps.InfoWindow({
     content: 'Shash '
     });
@@ -151,27 +118,8 @@ var MapView = function (groupID) {
     /*google.maps.event.addListener(marker, 'click', function() {
     infowindow.open(map, marker);
 <<<<<<< HEAD
-=======
-<<<<<<< HEAD
     });
-<<<<<<< HEAD
   }*/
-=======
-  }
-  var onSuccess = function (position) {
-    that.latitude = position.coords.latitude; 
-    that.longitude = position.coords.longitude;
-    //google.maps.event.addDomListener(window, 'load', that.makeMap);
-    that.makeMap();
-  };
-  var onError = function (error){
-    alert('code: '    + error.code    + '\n' +
-                'message: ' + error.message + '\n');
-  };
-=======
->>>>>>> 963e588696b388a885aa3aef6343a1d2b0f828d5
-    });*/
->>>>>>> 7452bea35d56a1ed798c9c93dff7b0cb7f00cd59
   /*for(i=0; i<grpMembers; i++){
   this.makeInfoWindowEvent = function(map, infowindow, markers[i]) {
   /*  google.maps.event.addListener(marker, 'click', function() {
