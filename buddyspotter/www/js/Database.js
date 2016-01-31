@@ -18,6 +18,11 @@ var database = (function(){
       return obj.key();
     }
 
+    res.updateUser = function(){
+      var userRef = new Firebase(FIRE_BASE_URL+USER_TABLE+window.user.key);
+      userRef.set(window.user);
+    }
+
     res.getUser = function(userId, callback){
         var userRef = new Firebase(FIRE_BASE_URL+USER_TABLE+userId);
         userRef.once('value', function(data) {
