@@ -1,30 +1,34 @@
 var MapView = function () {
-  var that;
+
   this.initialize = function () {
-    that = this;
     this.$el = $('<div/>');
     this.render();
-    navigator.geolocation.getCurrentPosition(onSuccess,onError);
+    google.maps.event.addDomListener(window, 'load', this.makeMap);
   }
   this.render = function() {
     this.$el.html(this.template());
     return this;
   };
   this.makeMap = function() {
-    //var myLatlng = new google.maps.LatLng(-25.363882,131.044922)
-    console.log(that.latitude);
-    console.log(that.longitude);
-    var myLatlng = new google.maps.LatLng(this.latitude,this.longitude);
-    var myLatlng = {
-        lat: that.latitude,
-        lng: that.longitude
-      };
+    var map = new google.maps.Map(document.getElementById('map-canvas'), mapOptions);
+    if (navigator.geolocation) {
+      navigator.geolocation.getCurrentPosition(function(position) {
+        var pos = {
+          lat: position.coords.latitude,
+          lng: position.coords.longitude
+        };
+        console.log(pos);
+        infoWindow.setPosition(pos);
+        infoWindow.setContent('Location found.');
+        map.setCenter(pos);
+      });
+    } 
+    var myLatlng = new google.maps.LatLng(-25.363882,131.044922);
     var mapOptions = {
-    zoom: 13,
+    zoom: 4,
     center: myLatlng,
     mapTypeId: google.maps.MapTypeId.ROADMAP
     }
-    var map = new google.maps.Map(document.getElementById('map-canvas'), mapOptions);
     console.log(document.getElementById('map-canvas'));
 
     var marker = new google.maps.Marker({
@@ -46,15 +50,6 @@ var MapView = function () {
     infowindow.open(map, marker);
     });
   }
-  var onSuccess = function (position) {
-    that.latitude = position.coords.latitude; 
-    that.longitude = position.coords.longitude;
-    //google.maps.event.addDomListener(window, 'load', that.makeMap);
-    that.makeMap();
-  };
-  var onError = function (error){
-    alert('code: '    + error.code    + '\n' +
-                'message: ' + error.message + '\n');
-  };
+
   this.initialize();
 }

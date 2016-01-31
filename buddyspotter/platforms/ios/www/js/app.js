@@ -2,25 +2,26 @@
 (function () {
 
     /* ---------------------------------- Local Variables ---------------------------------- */
+    LoginView.prototype.template = Handlebars.compile($("#login-tpl").html());
     HomeView.prototype.template = Handlebars.compile($("#home-tpl").html());
-    EmployeeListView.prototype.template = Handlebars.compile($("#employee-list-tpl").html());
-    EmployeeView.prototype.template = Handlebars.compile($("#employee-tpl").html());
+    GroupListView.prototype.template = Handlebars.compile($("#group-list-tpl").html());
+    MapView.prototype.template = Handlebars.compile($("#map-tpl").html());
     var slider = new PageSlider($('body'));
-    var service = new EmployeeService();
-    service.initialize().done(function () {
-      router.addRoute('', function() {
-          slider.slidePage(new HomeView(service).render().$el);
-      });
 
-      router.addRoute('employees/:id', function(id) {
-          service.findById(parseInt(id)).done(function(employee) {
-              slider.slidePage(new EmployeeView(employee).render().$el);
-          });
-      });
 
-      router.start();
+    router.addRoute('', function() {
+      //slider.slidePage(new LoginView().render().$el);
+      slider.slidePage(new MapView().render().$el);
     });
 
+    router.addRoute('home', function() {
+      slider.slidePage(new HomeView().render().$el);
+    });
+    router.addRoute('map', function() {
+      slider.slidePage(new MapView().render().$el);
+    });
+    router.start();
+    
     /* --------------------------------- Event Registration -------------------------------- */
     document.addEventListener('deviceready', function () {
         StatusBar.overlaysWebView( false );
@@ -31,7 +32,7 @@
                 navigator.notification.alert(
                     message,    // message
                     null,       // callback
-                    "Workshop", // title
+                    "BuddySpotter", // title
                     'OK'        // buttonName
                 );
             };
