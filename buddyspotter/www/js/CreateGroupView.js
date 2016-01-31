@@ -16,6 +16,7 @@ var CreateGroupView=function(){
 	this.creategroup=function(){
 		newGroup=$("#group_name",this.$el).val();
 		var groupID=database.createGroup(newGroup);
+		console.log(groupID);
 		window.location.hash="addmember/"+groupID;
 	};
 	

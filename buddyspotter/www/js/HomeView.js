@@ -8,15 +8,16 @@ var HomeView = function () {
         }
         this.$el = $('<div/>');
         var that = this;
-        database.getGroups(function(){
-            that.render();
+        database.getGroups(function(groups){
+            that.render(groups);
         });
+        this.$el.on('click', '#creategroup', function(){window.location.hash = "creategroup";});
+        
     };
 
-    this.render = function() {
-        this.groupListView = new GroupListView();
-        console.log(this.groupListView);
-	    this.$el.html(this.template());
+    this.render = function(groups) {
+        this.groupListView = new GroupListView(groups);
+        this.$el.html(this.template(groups));
 	    $('.content', this.$el).html(this.groupListView.$el);
 	    return this;
 	};

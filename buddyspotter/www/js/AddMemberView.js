@@ -1,26 +1,37 @@
 var AddMemberView=function(groupID){
 	var memberListView;
 	this.initialize=function(){
-		this.$el="</div>";
+		this.$el=$("<div/>");
 		this.$el.on('click', '#newMember', this.phonePopup);
-		
+		this.memberListing();
 	};
 	this.render=function(){
 		this.$el.html(this.template());
-		$('.content', this.$el).html(memberListView.$el);
+		if(this.memberListView){
+			$('.content', this.$el).html(this.memberListView.$el);
+		}
 	    return this;
 	};
 	this.memberListing=function(){
 		var that=this;
-		database.getMembers(function(groupID){
-			that.memberListView=new memberListView(groupID);
+		database.getMembers(groupID, function(group){
+			that.memberListView=new MemberListView(group);
 			that.render();
 		});
 	}
 	this.phonePopup = function() {
 		var successCallback = function(result){
-			setTimeout(function(){alert(result.name + " " + result.phoneNumber);
-				database.addMember(groupID,result.name,result.phoneNumber);
+			setTimeout(function(){
+				var p = result.phoneNumber;
+				p = p.split(" ").join("");
+				p = p.split("(").join("");
+				p = p.split(")").join("");
+				p = p.split("+").join("");
+				p = p.split("-").join("");
+				while(p.length > 10){
+					p = p.substring(1);
+				}
+				database.addUserToGroup(groupID, {"first_name": result.name, "phone": p});
 			},0);
 			
 		};
@@ -33,7 +44,7 @@ var AddMemberView=function(groupID){
 		},false);
     
 	};
-	
+	this.initialize();
 }
 
 			

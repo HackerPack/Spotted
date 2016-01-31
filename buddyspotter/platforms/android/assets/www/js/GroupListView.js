@@ -12,7 +12,7 @@ var GroupListView = function (groups) {
         this.render(groups);
     }
 
-    this.render = function() {
+    this.render = function(groups) {
         this.$el.html(this.template(groups));
         return this;
     };

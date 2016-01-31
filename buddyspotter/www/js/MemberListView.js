@@ -1,14 +1,14 @@
-var memberListView = function (groupName) {
+var MemberListView = function (group) {
 
     var members;
 
     this.initialize = function() {
         this.$el = $('<div/>');
-        this.setMembers(groupID);
+        this.setMembers();
     };
 
-    this.setMembers = function(list) {
-        members= list;
+    this.setMembers = function() {
+        members= group;
         this.render();
     }
 

@@ -7,6 +7,10 @@
     GroupListView.prototype.template = Handlebars.compile($("#group-list-tpl").html());
 	CreateGroupView.prototype.template=Handlebars.compile($("#group-create-tpl").html());
 	AddMemberView.prototype.template=Handlebars.compile($("#add-member-tpl").html());
+<<<<<<< HEAD
+=======
+    MemberListView.prototype.template = Handlebars.compile($("#member-list-tpl").html());
+>>>>>>> 963e588696b388a885aa3aef6343a1d2b0f828d5
     MapView.prototype.template = Handlebars.compile($("#map-tpl").html());
     var slider = new PageSlider($('body'));
 
