@@ -12,11 +12,11 @@
 
 <script id="login-tpl" type="text/template">
     <div class="content">
-    	<input id="first_name" style="width:100%" placeholder="First Name"/>
-    	<input id="last_name" style="width:100%" placeholder="Last Name"/>
-    	<input id="phone_no" style="width:100%" placeholder="Phone Number"/>
-		<a class="btn btn-block btn-social btn-lg btn-facebook" id="login" style="position:absolute;bottom:0">Login
-		</a>
+    	<input id="first_name" class ="glow_input" placeholder="First Name"/>
+    	<input id="last_name" class="glow_input" placeholder="Last Name"/>
+    	<input id="phone_no" class ="glow_input" placeholder="Phone Number"/>
+		<button class="btn btn-block btn-social btn-lg myButton" id="login" style="position:absolute;bottom:0">Login
+		</buttton>
 		<div id="msg"> </div>
     </div>
 </script>
@@ -32,7 +32,7 @@
     <div class="content" style="width:100%">
 		</div>
     <div style="position: absolute;bottom: 0;width:100%;">
-      <a class="btn btn-block btn-lg" id="creategroup" style="position:absolute;bottom:0"> Create New Group</a>
+      <button class="btn btn-block btn-lg myButton" id="creategroup" style="position:absolute;bottom:0"> Create New Group</button>
     </div>
 	
 </script>
@@ -56,8 +56,8 @@
 		<hl class="title">Create Group</h1>
 	</header>
 	<div class="content">
-		<input id="group_name" placeholder="GroupName" style="width:100%" />
-		<a class="btn btn-block btn-lg" id="addmember" style="position:absolute;bottom:0">Create</a>
+		<input id="group_name" placeholder="GroupName" class="glow_input" />
+		<button class="btn btn-block btn-lg myButton" id="addmember" style="position:absolute;bottom:0">Create</button>
 		<div id="msg"></div>
 	</div>
 
@@ -67,7 +67,7 @@
 	<header class="bar bar-nav">
 		<h1 class="title">Members</h1>
 	</header>
-	<button class="btn btn-block btn-lg" id="newMember" style="position: absolute;bottom: 0;z-index:1;">Add Member</button>
+	<button class="btn btn-block btn-lg myButton" id="newMember" style="position: absolute;bottom: 0;z-index:1;">Add Member</button>
 	<div class="content"></div>		
 </script>
 
