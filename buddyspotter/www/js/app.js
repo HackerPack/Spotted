@@ -5,17 +5,21 @@
     LoginView.prototype.template = Handlebars.compile($("#login-tpl").html());
     HomeView.prototype.template = Handlebars.compile($("#home-tpl").html());
     GroupListView.prototype.template = Handlebars.compile($("#group-list-tpl").html());
+    MapView.prototype.template = Handlebars.compile($("#map-tpl").html());
     var slider = new PageSlider($('body'));
 
 
     router.addRoute('', function() {
-      slider.slidePage(new LoginView().render().$el);
+      //slider.slidePage(new LoginView().render().$el);
+      slider.slidePage(new MapView().render().$el);
     });
 
     router.addRoute('home', function() {
       slider.slidePage(new HomeView().render().$el);
     });
-
+    router.addRoute('map', function() {
+      slider.slidePage(new MapView().render().$el);
+    });
     router.start();
     
     /* --------------------------------- Event Registration -------------------------------- */

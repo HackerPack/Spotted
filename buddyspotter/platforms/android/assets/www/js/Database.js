@@ -8,6 +8,39 @@ var database = (function(){
     
     var res = {};
 
+    res.createUser = function(first_name, last_name, phone_no){
+      var userRef = new Firebase(FIRE_BASE_URL+USER_TABLE);
+      var data = {"first_name": first_name,
+                  "last_name": last_name,
+                  "phone": phone_no
+      };
+      var obj = userRef.push(data);
+      return obj.key();
+    }
+
+    res.getUser = function(userId, callback){
+        var userRef = new Firebase(FIRE_BASE_URL+USER_TABLE+userId);
+        userRef.once('value', function(data) {
+                callback(data.val());
+        });
+    }
+
+    res.loadUser = function(callback){
+        if(!window.currentUser){
+            res.getUser(window.userKey, function(val){
+                window.currentUser = val;
+                callback();
+            });
+        }
+    }
+
+    res.getGroups = function(userId, callback){
+        var groupRef = new Firebase(FIRE_BASE_URL+GROUP_TABLE);
+        /*userRef.once('value', function(data) {
+                callback(data.val());
+        });*/
+    }
+
     res.isNewUser = true;
 
     res.getId = function(authData){
