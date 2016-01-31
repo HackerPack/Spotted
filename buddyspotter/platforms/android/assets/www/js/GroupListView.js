@@ -9,10 +9,10 @@ var GroupListView = function (groups) {
 
     this.setGroups = function(list) {
         groups = list;
-        this.render();
+        this.render(groups);
     }
 
-    this.render = function() {
+    this.render = function(groups) {
         this.$el.html(this.template(groups));
         return this;
     };

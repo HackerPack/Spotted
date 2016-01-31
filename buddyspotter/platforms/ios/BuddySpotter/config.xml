@@ -49,6 +49,12 @@
     <feature name="Contacts">
         <param name="ios-package" value="CDVContacts" />
     </feature>
+    <feature name="ContactNumberPicker">
+        <param name="ios-package" value="CDVContactNumberPicker" />
+    </feature>
+    <feature name="ContactPicker">
+        <param name="ios-package" value="ContactPicker" />
+    </feature>
     <allow-intent href="itms:*" />
     <allow-intent href="itms-apps:*" />
     <name>BuddySpotter</name>

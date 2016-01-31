@@ -10,6 +10,12 @@
 <body>
 
 <script id="login-tpl" type="text/template">
+<<<<<<< HEAD
+=======
+	<header class="bar bar-nav">
+        <h1 class="title">Spotted</h1>
+    </header>
+>>>>>>> 04a21f2f288bb936828daad50dae7c6b058cf331
     <div class="content">
     	<input id="first_name" placeholder="First Name"/>
     	<input id="last_name" placeholder="Last Name"/>
@@ -20,15 +26,29 @@
     </div>
 </script>
 
+<<<<<<< HEAD
 <script id="map-tpl" type="text/template">
   <div id="map-canvas" style="height:100%;"></div>
 </script>
 
+=======
+>>>>>>> 04a21f2f288bb936828daad50dae7c6b058cf331
 <script id="home-tpl" type="text/template">
     <header class="bar bar-nav">
         <h1 class="title">Groups</h1>
     </header>
+<<<<<<< HEAD
     <div class="content"></div>
+=======
+    <div class="content">
+	
+	<div>
+		<a class="btn btn-block btn-lg" id="creategroup"> Create New Group</a>
+	</div>
+	
+	</div>
+	
+>>>>>>> 04a21f2f288bb936828daad50dae7c6b058cf331
 </script>
 
 <script id="group-list-tpl" type="text/template">
@@ -46,6 +66,47 @@
     </ul>
 </script>
 
+<<<<<<< HEAD
+=======
+<script id="group-create-tpl" type="text/template">
+	<header class="bar bar-nav">
+		<hl class="title">Create Group</h1>
+	</header>
+	<div class="content">
+		<input id="group_name" placeholder="GroupName"/>
+		<a class="btn btn-block btn-lg" id="addmember">Create</a>
+		<div id="msg"></div>
+	</div>
+
+</script>
+
+<script id="add-member-tpl" type="text/template">
+	<header class="bar bar-nav">
+		<h1 class="title">Members</h1>
+	</header>
+	<div class="bar bar-standard bar-header-secondary">
+        <input class='search-key' type="search"/>
+    </div>
+	<div class="content"></div>		
+</script>
+
+<script id="member-list-tpl" type="text/template">
+	<ul class="table-view">
+		{{#each this}}
+		<li class="table-view-cell media">
+			<a href="#member/{{id}}">
+				<img class="media-object pull-left" src="assets/pics/Amy_Jones">
+				<div class="media-body">
+					{{title}}
+				</div>
+			</a>
+		</li>
+		{{/each}}
+	</ul>
+</script>
+
+
+>>>>>>> 04a21f2f288bb936828daad50dae7c6b058cf331
 <script src="cordova.js"></script>
 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyARx9PZM1GyaDkY68FNVY1BHdaCmE9A03w&sensor=true"></script>
 <script src="lib/jquery.js"></script>
@@ -55,10 +116,20 @@
 <script src="lib/handlebars.js"></script>
 <script src="lib/firebase.js"></script>
 <script src="js/Database.js"></script>
+<<<<<<< HEAD
 <script src="js/HomeView.js"></script>
 <script src="js/GroupListView.js"></script>
 <script src="js/Login.js"></script>
 <script src="js/Map.js"></script>
+=======
+<script src="js/GroupListView.js"></script>
+<script src="js/Login.js"></script>
+<script src="js/HomeView.js"></script>
+
+<script src="js/CreateGroupView.js"></script>
+<script src="js/AddMemberView.js"></script>
+<script src="js/memberListView.js"></script>
+>>>>>>> 04a21f2f288bb936828daad50dae7c6b058cf331
 <script src="js/app.js"></script>
 
 </body>

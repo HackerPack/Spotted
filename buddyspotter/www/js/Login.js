@@ -4,6 +4,7 @@ var LoginView = function (service) {
 
     this.initialize = function () {
         this.$el = $('<div/>');
+		
         this.$el.on('click', '#login', this.login);
         window.user = JSON.parse(window.localStorage.getItem("bs_login_key"));
         if(window.user){
@@ -27,6 +28,7 @@ var LoginView = function (service) {
             $("#msg", this.$el).html("Invalid phone number");
             return;
         }
+		
 	    var key = database.createUser(first_name, last_name, phone_no);
         window.user = { "key": key,
                         "first_name": first_name,

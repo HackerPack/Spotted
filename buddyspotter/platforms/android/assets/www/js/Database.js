@@ -34,20 +34,64 @@ var database = (function(){
         }
     }
 
-    res.getGroups = function(userId, callback){
+    res.getGroups = function(callback){
         var groupRef = new Firebase(FIRE_BASE_URL+GROUP_TABLE);
+<<<<<<< HEAD
         groupRef.on("child_added", function(snapshot, prevChildKey) {
           var newItem = snapshot.val();
           callback(newItem, prevChildKey)
+=======
+        groupRef.on("value", function(snapshot, prevChildKey) {
+          var newItem = snapshot.val();
+          if(newItem){
+              var res = [];
+              for(var key in newItem){
+                  for(var kk in newItem[key].user){
+                    if(newItem[key].user[kk].phone == window.user.phone){
+                        res.push(newItem[key]);
+                    }
+                  }
+              }
+              callback(res)
+          }
+        });
+    }
+
+    res.getMembers = function(groupID, callback){
+        var groupRef = new Firebase(FIRE_BASE_URL+GROUP_TABLE+groupID);
+        groupRef.on("value", function(snapshot, prevChildKey) {
+          var newItem = snapshot.val();
+          var res = [];
+          if(newItem){
+              for(var key in newItem.user){
+                res.push(newItem.user[key]);
+              }
+          }
+          callback(res);
+>>>>>>> 04a21f2f288bb936828daad50dae7c6b058cf331
         });
     }
 
     res.createGroup = function(group_name){
       var groupRef = new Firebase(FIRE_BASE_URL+GROUP_TABLE);
+<<<<<<< HEAD
       var data = {"name": group_name};
       var obj = groupRef.push(data);
       return obj.key();
+=======
+      var data = {"name": group_name, "user": {}};
+      data["user"][window.user.key] = window.user;
+      var obj = groupRef.push(data);
+      return obj.key();
     }
+
+    res.addUserToGroup = function(group_id, user){
+      var groupRef = new Firebase(FIRE_BASE_URL+GROUP_TABLE+group_id+"/user");
+      var obj = groupRef.push(user);
+      return obj.key();
+>>>>>>> 04a21f2f288bb936828daad50dae7c6b058cf331
+    }
+
 
     res.isNewUser = true;
 
