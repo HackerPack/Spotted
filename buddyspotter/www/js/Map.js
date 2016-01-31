@@ -6,8 +6,8 @@ var MapView = function (groupID) {
     var grpMembers = 5;
     var temploc = [-25.363882,131.044922];
     
-    var markers=[];
-    var infoWindows=[];
+    //var markers=[];
+    //var infoWindows=[];
     var i;
     var names = ['Gautam', 'Shivani', 'Shash', 'Anbu', 'Anany'];
     this.$el = $('<div/>');
@@ -27,15 +27,20 @@ var MapView = function (groupID) {
     center: myLatlng,
     mapTypeId: google.maps.MapTypeId.ROADMAP
     }
+
     var myLatLngs=[];
-    myLatLngs[0] =new google.maps.LatLng(this.latitude+1,this.longitude+1);
-    myLatLngs[1] =new google.maps.LatLng(this.latitude+1,this.longitude-1);
-    myLatLngs[2] =new google.maps.LatLng(this.latitude-1,this.longitude+1);
-    myLatLngs[3] =new google.maps.LatLng(this.latitude-1,this.longitude-1);
-    myLatLngs[4] =new google.maps.LatLng(this.latitude+1,this.longitude+1.5); //2D array
+   /* myLatLngs[0] =new google.maps.LatLng(this.latitude+0.00011,this.longitude+0.000001);
+    myLatLngs[1] =new google.maps.LatLng(this.latitude+0.3434341,this.longitude-0.0000421);
+    myLatLngs[2] =new google.maps.LatLng(this.latitude-0.3331,this.longitude+0.00001);
+    myLatLngs[3] =new google.maps.LatLng(this.latitude-0.000281,this.longitude-0.00001);
+    myLatLngs[4] =new google.maps.LatLng(this.latitude+0.3333331,this.longitude+0.0000015); //2D array*/
       
     var map = new google.maps.Map(document.getElementById('map-canvas'), mapOptions);
-      
+    
+    var myMarker = new google.maps.Marker({
+      position: myLatlng,
+      map: map
+    })
       //------------------------------------------------------------------------
     marker1 = new google.maps.Marker({
            position: myLatLngs[0],
@@ -61,20 +66,20 @@ var MapView = function (groupID) {
            position: myLatLngs[4],
            map: map,
            title: 'Hello World!'
-    });      
+    }); 
       //------------------------------------------------------------------------
       
-    for(i=0; i<grpMembers; i++){
-        /*markers[0] = new google.maps.Marker({
+  /*  for(i=0; i<grpMembers; i++){
+        markers[0] = new google.maps.Marker({
            position: myLatLngs[i],
            map: map,
            title: 'Hello World!'
-        });*/
+        });
         
         infoWindows[i] = new google.maps.InfoWindow({
            content: names[i] 
         });
-    }
+    }*/
     
       
     var infowindow1 = new google.maps.InfoWindow({
@@ -97,7 +102,14 @@ var MapView = function (groupID) {
     var infowindow5 = new google.maps.InfoWindow({
     content: 'Anany '
     });
-      
+    
+    this.openInfoWindow = function(){
+        infowindow1.open(map, marker1);
+        infowindow2.open(map, marker2);
+        infowindow3.open(map, marker3);
+        infowindow4.open(map, marker4);
+        infowindow5.open(map, marker5);
+    }
       
     //this.makeInfoWindowEvent(map, infowindow, marker);
     /*google.maps.event.addListener(marker, 'click', function() {
@@ -107,11 +119,11 @@ var MapView = function (groupID) {
         /*for(i=0; i<grpMembers; i++){
             infoWindows[i].open(map, markers[i]);
         }*/
-  this.makeInfoWindowEvent = function(map, infowindow, marker1) {}
+ /* this.makeInfoWindowEvent = function(map, infowindow, marker1) {}
   this.makeInfoWindowEvent = function(map, infowindow, marker2) {}
   this.makeInfoWindowEvent = function(map, infowindow, marker3) {}
   this.makeInfoWindowEvent = function(map, infowindow, marker4) {}
-  this.makeInfoWindowEvent = function(map, infowindow, marker5) {}
+  this.makeInfoWindowEvent = function(map, infowindow, marker5) {}*/
   }
   
   //this.makeInfoWindowEvent = function(map, infowindow, marker) {}
@@ -136,12 +148,5 @@ var MapView = function (groupID) {
       alert('code: '    + error.code    + '\n' +
               'message: ' + error.message + '\n');
     };
-  /*this.openInfoWindow = function(){
-        infowindow1.open(map, marker1);
-        infowindow2.open(map, marker2);
-        infowindow3.open(map, marker3);
-        infowindow4.open(map, marker4);
-        infowindow5.open(map, marker5);
-    }*/
   this.initialize();
 }
