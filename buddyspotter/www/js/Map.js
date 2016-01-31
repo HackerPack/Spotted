@@ -22,6 +22,7 @@ var MapView = function (groupID) {
   };
     
   this.makeMap = function() {
+    window.alert("Sdfsdfsdf");
     database.getMembersWithLoc(groupID, function(users){
       var myLatlng = new google.maps.LatLng(window.user.latitude, window.user.longitude);
       var mapOptions = {
@@ -68,14 +69,18 @@ var MapView = function (groupID) {
       var markers = [];
       var infoWindows = [];
       var myLatLngs=[];
+      window.alert(users.length);
       for(i=0; i<users.length; i++){
+        window.alert("1");
         if(users[i].latitude && users[i].longitude){
+          window.alert("2");
           /*markers[0] = new google.maps.Marker({
              position: myLatLngs[i],
              map: map,
              title: 'Hello World!'
           });*/
           var ll = new google.maps.LatLng(users[i].latitude, users[i].longitude);
+          window.alert(ll);
           myLatLngs.push(ll);
 
           var marker = new google.maps.Marker({
