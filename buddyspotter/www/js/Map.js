@@ -13,7 +13,7 @@ var MapView = function () {
     
 //----------------------------------------------------------------------------
 //---------Wonder why following snippet to get current loc not woking? :( ----
-    navigator.geolocation.getCurrentPosition(function(position)
+/*    navigator.geolocation.getCurrentPosition(function(position)
 {
     // just to show how to access latitute and longitude
     var location = [position.coords.latitude, position.coords.longitude];
@@ -24,7 +24,7 @@ function(error)
     alert('code: ' + error.code + ' with message: ' + error.message + '\n');
 }, 
 { enableHighAccuracy: true});
-    
+    */
     //------------------------------------------------------------------------
     //The hard-coding for map related variables
     var grpMembers = 5;
@@ -45,7 +45,6 @@ function(error)
     myLatLngs[2] =new google.maps.LatLng(temploc[0]+5,temploc[1]-5);
     myLatLngs[3] =new google.maps.LatLng(temploc[0]-5,temploc[1]+5);
     myLatLngs[4] =new google.maps.LatLng(temploc[0]-5,temploc[1]-5); //2D array
-      
       
     //var myLatlng = new google.maps.LatLng(location[0], location[1]);
     var mapOptions = {
@@ -98,11 +97,11 @@ function(error)
       //------------------------------------------------------------------------
       
     for(i=0; i<grpMembers; i++){
-        markers[0] = new google.maps.Marker({
+        /*markers[0] = new google.maps.Marker({
            position: myLatLngs[i],
            map: map,
            title: 'Hello World!'
-        });
+        });*/
         
         infoWindows[i] = new google.maps.InfoWindow({
            content: names[i] 
@@ -110,13 +109,28 @@ function(error)
     }
     
       
-    /*var infowindow = new google.maps.InfoWindow({
+    var infowindow1 = new google.maps.InfoWindow({
     content: 'Gautam '
     });
       
     var infowindow2 = new google.maps.InfoWindow({
     content: 'Shivani '
-    });*/
+    });
+      
+    var infowindow3 = new google.maps.InfoWindow({
+    content: 'Shash '
+    });
+      
+    var infowindow4 = new google.maps.InfoWindow({
+    content: 'Anbu '
+    });
+      
+      
+    var infowindow5 = new google.maps.InfoWindow({
+    content: 'Anany '
+    });
+      
+      
       
     //this.makeInfoWindowEvent(map, infowindow, marker);
     /*google.maps.event.addListener(marker, 'click', function() {
@@ -124,18 +138,22 @@ function(error)
     });*/
     
     this.openInfoWindow = function(){
-        /*infowindow.open(map, marker);
-        infowindow2.open(map, marker2);*/
+        infowindow1.open(map, marker1);
+        infowindow2.open(map, marker2);
+        infowindow3.open(map, marker3);
+        infowindow4.open(map, marker4);
+        infowindow5.open(map, marker5);
         
-        for(i=0; i<grpMembers; i++){
+        /*for(i=0; i<grpMembers; i++){
             infoWindows[i].open(map, markers[i]);
-        }
+        }*/
     }
+    
     this.openInfoWindow();
   }
   
-  //this.makeInfoWindowEvent = function(map, infowindow, marker) {
-  /*  google.maps.event.addListener(marker, 'click', function() {
+  //this.makeInfoWindowEvent = function(map, infowindow, marker) {}
+    /*google.maps.event.addListener(marker, 'click', function() {
     infowindow.open(map, marker);
     });*/
   /*for(i=0; i<grpMembers; i++){
@@ -149,8 +167,6 @@ function(error)
   this.makeInfoWindowEvent = function(map, infowindow, marker3) {}
   this.makeInfoWindowEvent = function(map, infowindow, marker4) {}
   this.makeInfoWindowEvent = function(map, infowindow, marker5) {}
-  
-  
 
   this.initialize();
 }
