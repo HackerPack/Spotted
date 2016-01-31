@@ -18,6 +18,11 @@ var database = (function(){
       return obj.key();
     }
 
+    res.updateUser = function(){
+      var userRef = new Firebase(FIRE_BASE_URL+USER_TABLE+window.user.key);
+      userRef.set(window.user);
+    }
+
     res.getUser = function(userId, callback){
         var userRef = new Firebase(FIRE_BASE_URL+USER_TABLE+userId);
         userRef.once('value', function(data) {
@@ -73,10 +78,10 @@ var database = (function(){
         var userRef = new Firebase(FIRE_BASE_URL+USER_TABLE);
         userRef.on("value", function(snapshot, prevChildKey) {
             var newItem = snapshot.val();
-            var res = {};
+            var userRes = {};
             if(newItem){
                 for(var key in newItem){
-                    res[newItem[key].phone] = newItem[key];
+                    userRes[newItem[key].phone] = newItem[key];
                 }
             }
             var groupRef = new Firebase(FIRE_BASE_URL+GROUP_TABLE+groupID);
@@ -85,10 +90,10 @@ var database = (function(){
                 var res = [];
                 if(newItem){
                     for(var key in newItem.user){
-                      if(res.hasOwnProperty(newItem.user[key].phone)){
+                      if(userRes.hasOwnProperty(newItem.user[key].phone)){
                           var usr = newItem.user[key];
-                          usr.latitude = res[newItem.user[key].phone].latitude;
-                          usr.longitude = res[newItem.user[key].phone].longitude;
+                          usr.latitude = userRes[newItem.user[key].phone].latitude;
+                          usr.longitude = userRes[newItem.user[key].phone].longitude;
                           users.push(usr)
                       }
                     }
