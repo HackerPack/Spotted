@@ -9,7 +9,7 @@ var GroupListView = function (groups) {
 
     this.setGroups = function(list) {
         groups = list;
-        this.render();
+        this.render(groups);
     }
 
     this.render = function() {
