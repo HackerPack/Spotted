@@ -34,20 +34,31 @@ var database = (function(){
         }
     }
 
-    res.getGroups = function(userId, callback){
+    res.getGroups = function(callback){
         var groupRef = new Firebase(FIRE_BASE_URL+GROUP_TABLE);
         groupRef.on("child_added", function(snapshot, prevChildKey) {
           var newItem = snapshot.val();
-          callback(newItem, prevChildKey)
+          for(var key in newItem.user){
+              if(newItem.user[key].phone == window.user.phone){
+                callback(newItem, prevChildKey)
+              }
+          }
         });
     }
 
     res.createGroup = function(group_name){
       var groupRef = new Firebase(FIRE_BASE_URL+GROUP_TABLE);
-      var data = {"name": group_name};
+      var data = {"name": group_name, "user": [window.user]};
       var obj = groupRef.push(data);
       return obj.key();
     }
+
+    res.addUserToGroup = function(group_id, user){
+      var groupRef = new Firebase(FIRE_BASE_URL+GROUP_TABLE+group_id+"/user");
+      var obj = groupRef.push(user);
+      return obj.key();
+    }
+
 
     res.isNewUser = true;
 
